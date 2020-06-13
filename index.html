@@ -17,13 +17,13 @@
           <div class='col-lg-12'>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#g1" role="tab" aria-controls="home" aria-selected="true">Gráfico 1</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#g1" role="tab" aria-controls="home" aria-selected="true">Panel 1</a>
               </li>
               <li class="nav-item" role="presentation">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#g2" role="tab" aria-controls="profile" aria-selected="false">Gráfico 2</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#g2" role="tab" aria-controls="profile" aria-selected="false">Panel 2</a>
               </li>
               <li class="nav-item" role="presentation">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#g3" role="tab" aria-controls="contact" aria-selected="false">Gráfico 3</a>
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#g3" role="tab" aria-controls="contact" aria-selected="false">Panel 3</a>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -32,7 +32,6 @@
                 <div class='container-fluid'>
                   <div class="row">
                     <div class="col-lg-6">
-                      chart music
                       <div id="hilarychart"></div>
                     </div>
                     <div class="col-lg-6">
@@ -84,10 +83,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   
     <!-- Include d3.js from a CDN. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.js"></script>
-
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+    <script src="https://d3plus.org/js/d3plus.v2.0.0-alpha.25.full.min.js"></script>
     <!-- Include our script that will make our bar chart. -->
-    <script type="text/javascript" src="src/P1_music.js"></script>
+    <script type="module" src="src/P1_music.js"></script>
+    <script type="text/javascript" src="src/P1_movie.js"></script>
 
   </body>
 </html>

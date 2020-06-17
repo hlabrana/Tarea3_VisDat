@@ -12,7 +12,7 @@ d3.select("#BBBABYY")
   .style("text-align","center")
 
 new d3plus.Pack()
-  .select("#BBn6BABYY")
+  .select("#BBBABYY")
   .config({
     data: mydata,
     groupBy: ["id", "value"],

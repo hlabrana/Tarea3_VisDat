@@ -33,13 +33,18 @@ var data = [
     {artist: "Hillary Hahn", iden: "song_quantity", value: 0.94}
 ];
 
-d3.select("#viz")
+d3.select("#musicchart2")
 .append('h4')
-.text('Comparación entre artistas musicales [Spotify]')
+.text('Comparación entre artistas musicales usando los promedios para cada categoría [Spotify]')
+.style("text-align","center")
+
+d3.select("#musicchart2")
+.append('p')
+.text('Nota: los valores de cantidades de canciones fueron escalados en función del artista con más canciones')
 .style("text-align","center")
   
-var vizu = d3plus.LinePlot()
-  	.select("#viz")
+new d3plus.LinePlot()
+  	.select("#musicchart2")
   	.config({
       data: data,
       groupBy: "artist",
@@ -50,85 +55,3 @@ var vizu = d3plus.LinePlot()
     .height(500)
   	.width(700)
   .render();
-
-
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 800 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#musicchart2")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-    
-var x = d3.scalePoint()
-    .domain([
-        "acousticness", 
-        "danceability", 
-        "energy", 
-        "instrumentalness", 
-        "liveness", 
-        "speechiness", 
-        "tempo",
-        "valence",
-        "popularity",
-        "song_quantity"
-        ])
-    .range([0,width-50]);
-
-var y = d3.scaleLinear()
-    .domain([0, d3.max(data.series, d => d3.max(d.values))]).nice()
-    .range([height - margin.bottom, margin.top]);
-
-var z = d3.scaleOrdinal(d3.schemeCategory10).domain(["Hillary Hahn", "Drake", "Bad Bunny"]);
-
-var line = d3.line()
-    .curve(d3.curveLinear)
-    .x(function(d, i) { return x(data.dates[i]); })
-    .y(function(d) { return y(d); });
-    
-svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));   
-svg.append("g")
-	.call(d3.axisLeft(y));
-  
-svg.append("g")
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-    .selectAll("path")
-    .data(data.series)
-    .join("path")
-      .style("mix-blend-mode", "multiply")
-      .attr("d", d => line(d.values));
-    
-svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[1].values[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Drake");
-
-	svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[0].values[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Bad Bunny");
-    
-    
-svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[2].values[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Hillary Hahn");
-    
-    

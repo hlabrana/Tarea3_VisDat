@@ -1,65 +1,55 @@
-var data = {
-    y: "Value",
-    series: [{
-            name:"Hillary Hahn",
-            values: [
-                0.91,
-                0.35,
-                0.40,
-                0.38,
-                0.39,
-                0.44,
-                0.10,
-                0.45,
-                0.17,
-                0.94
-            ]
-        },
-        {
-            name: "Drake",
-            values: [
-                0.39,
-                0.65,
-                0.55,
-                0.24,
-                0.33,
-                0.34,
-                0.12,
-                0.40,
-                0.61,
-                1
-            ]
-        },
-        {
-            name: "Bad Bunny",
-            values: [
-                0.34,
-                0.75,
-                0.68,
-                0.40,
-                0.38,
-                0.46,
-                0.12,
-                0.53,
-                0.77,
-                0.27   
-            ]
-        }
+var data = [
+    {artist: "Drake", iden: "acousticness", value: 0.39},
+    {artist: "Drake", iden: "danceability", value: 0.65},
+    {artist: "Drake", iden: "energy", value: 0.55},
+    {artist: "Drake", iden: "instrumentalness", value: 0.24},
+    {artist: "Drake", iden: "liveness", value: 0.33},
+    {artist: "Drake", iden: "speechiness", value: 0.34},
+    {artist: "Drake", iden: "tempo", value: 0.12},
+    {artist: "Drake", iden: "valence", value: 0.40},
+    {artist: "Drake", iden: "popularity", value: 0.61},
+    {artist: "Drake", iden: "song_quantity", value: 1},
 
-    ],
-    dates: [
-        "acousticness", 
-        "danceability", 
-        "energy", 
-        "instrumentalness", 
-        "liveness", 
-        "speechiness", 
-        "tempo",
-        "valence",
-        "popularity",
-        "song_quantity"
-        ]
-};
+    {artist: "Bad Bunny", iden: "acousticness", value: 0.34},
+    {artist: "Bad Bunny", iden: "danceability", value: 0.75},
+    {artist: "Bad Bunny", iden: "energy", value: 0.68},
+    {artist: "Bad Bunny", iden: "instrumentalness", value: 0.40},
+    {artist: "Bad Bunny", iden: "liveness", value: 0.38},
+    {artist: "Bad Bunny", iden: "speechiness", value: 0.46},
+    {artist: "Bad Bunny", iden: "tempo", value: 0.12},
+    {artist: "Bad Bunny", iden: "valence", value: 0.53},
+    {artist: "Bad Bunny", iden: "popularity", value: 0.77},
+    {artist: "Bad Bunny", iden: "song_quantity", value: 0.27},
+
+    {artist: "Hillary Hahn", iden: "acousticness", value: 0.91},
+    {artist: "Hillary Hahn", iden: "danceability", value: 0.35},
+    {artist: "Hillary Hahn", iden: "energy", value: 0.40},
+    {artist: "Hillary Hahn", iden: "instrumentalness", value: 0.38},
+    {artist: "Hillary Hahn", iden: "liveness", value: 0.38},
+    {artist: "Hillary Hahn", iden: "speechiness", value: 0.44},
+    {artist: "Hillary Hahn", iden: "tempo", value: 0.10},
+    {artist: "Hillary Hahn", iden: "valence", value: 0.45},
+    {artist: "Hillary Hahn", iden: "popularity", value: 0.17},
+    {artist: "Hillary Hahn", iden: "song_quantity", value: 0.94}
+];
+
+d3.select("#viz")
+.append('h4')
+.text('Comparación entre artistas musicales [Spotify]')
+.style("text-align","center")
+  
+var vizu = d3plus.LinePlot()
+  	.select("#viz")
+  	.config({
+      data: data,
+      groupBy: "artist",
+      x: "iden",
+      y: "value",
+      lineLabels: true
+    })
+    .height(500)
+  	.width(700)
+  .render();
 
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},

@@ -6,8 +6,13 @@ var data = [
     {parent: "Group 2", id: "eta", value: 25}
   ];
   
+d3.select("#BBBABYY")
+  .append('h4')
+  .text('Comparación entre artistas musicales [Spotify]')
+  .style("text-align","center")
 
 new d3plus.Pack()
+.select("#BBBABYY")
   .data(data)
   .groupBy(["parent", "id"])
   .sum("value")

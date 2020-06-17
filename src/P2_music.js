@@ -1,144 +1,58 @@
-var data = {
-    y: "y",
-    series: [{
-            name:"Hillary Hahn",
-            ys: [
-                0.91,
-                0.35,
-                0.40,
-                0.38,
-                0.39,
-                0.44,
-                0.10,
-                0.45,
-                0.17,
-                0.94
-            ]
-        },
-        {
-            name: "Drake",
-            ys: [
-                0.39,
-                0.65,
-                0.55,
-                0.24,
-                0.33,
-                0.34,
-                0.12,
-                0.40,
-                0.61,
-                1
-            ]
-        },
-        {
-            name: "Bad Bunny",
-            ys: [
-                0.34,
-                0.75,
-                0.68,
-                0.40,
-                0.38,
-                0.46,
-                0.12,
-                0.53,
-                0.77,
-                0.27   
-            ]
-        }
+var myData = [
+    {id: "Drake", x: 0, y: 0.39, label: "acousticness"},
+    {id: "Drake", x: 1, y: 0.65, label: "danceability"},
+    {id: "Drake", x: 2, y: 0.55, label: "energy"},
+    {id: "Drake", x: 3, y: 0.24, label: "instrumentalness"},
+    {id: "Drake", x: 4, y: 0.33, label: "liveness"},
+    {id: "Drake", x: 5, y: 0.34, label: "speechiness"},
+    {id: "Drake", x: 6, y: 0.12, label: "tempo"},
+    {id: "Drake", x: 7, y: 0.40, label: "valence"},
+    {id: "Drake", x: 8, y: 0.61, label: "popularity"},
+    {id: "Drake", x: 9, y: 1, label: "song_quantity"},
+    {id: "Bad Bunny", x: 0, y: 0.34, label: "acousticness"},
+    {id: "Bad Bunny", x: 1, y: 0.75, label: "danceability"},
+    {id: "Bad Bunny", x: 2, y: 0.68, label: "energy"},
+    {id: "Bad Bunny", x: 3, y: 0.40, label: "instrumentalness"},
+    {id: "Bad Bunny", x: 4, y: 0.38, label: "liveness"},
+    {id: "Bad Bunny", x: 5, y: 0.46, label: "speechiness"},
+    {id: "Bad Bunny", x: 6, y: 0.12, label: "tempo"},
+    {id: "Bad Bunny", x: 7, y: 0.53, label: "valence"},
+    {id: "Bad Bunny", x: 8, y: 0.77, label: "popularity"},
+    {id: "Bad Bunny", x: 9, y: 0.27, label: "song_quantity"},
+    {id: "Hillary Hahn", x: 0, y: 0.91, label: "acousticness"},
+    {id: "Hillary Hahn", x: 1, y: 0.35, label: "danceability"},
+    {id: "Hillary Hahn", x: 2, y: 0.40, label: "energy"},
+    {id: "Hillary Hahn", x: 3, y: 0.38, label: "instrumentalness"},
+    {id: "Hillary Hahn", x: 4, y: 0.38, label: "liveness"},
+    {id: "Hillary Hahn", x: 5, y: 0.44, label: "speechiness"},
+    {id: "Hillary Hahn", x: 6, y: 0.10, label: "tempo"},
+    {id: "Hillary Hahn", x: 7, y: 0.45, label: "valence"},
+    {id: "Hillary Hahn", x: 8, y: 0.17, label: "popularity"},
+    {id: "Hillary Hahn", x: 9, y: 0.94, label: "song_quantity"},
+];
 
-    ],
-    dates: [
-        "acousticness", 
-        "danceability", 
-        "energy", 
-        "instrumentalness", 
-        "liveness", 
-        "speechiness", 
-        "tempo",
-        "valence",
-        "popularity",
-        "song_quantity"
-        ]
-};
+d3.select("#musicchart2")
+.append('h4')
+.text('Comparación entre artistas musicales usando los promedios para cada categoría [Spotify]')
+.style("text-align","center")
 
-
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 800 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#musicchart2")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-    
-var x = d3.scalePoint()
-    .domain([
-        "acousticness", 
-        "danceability", 
-        "energy", 
-        "instrumentalness", 
-        "liveness", 
-        "speechiness", 
-        "tempo",
-        "valence",
-        "popularity",
-        "song_quantity"
-        ])
-    .range([0,width-50]);
-
-var y = d3.scaleLinear()
-    .domain([0, d3.max(data.series, d => d3.max(d.ys))]).nice()
-    .range([height - margin.bottom, margin.top]);
-
-var z = d3.scaleOrdinal(d3.schemeCategory10).domain(["Hillary Hahn", "Drake", "Bad Bunny"]);
-
-var line = d3.line()
-    .curve(d3.curveLinear)
-    .x(function(d, i) { return x(data.dates[i]); })
-    .y(function(d) { return y(d); });
-    
-svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));   
-svg.append("g")
-	.call(d3.axisLeft(y));
+d3.select("#musicchart2")
+.append('p')
+.text('Nota: los valores de cantidades de canciones fueron escalados en función del artista con más canciones')
+.style("text-align","center")
   
-svg.append("g")
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-    .selectAll("path")
-    .data(data.series)
-    .join("path")
-      .style("mix-blend-mode", "multiply")
-      .attr("d", d => line(d.ys));
-    
-svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[1].ys[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Drake");
-
-	svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[0].ys[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Bad Bunny");
-    
-    
-svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[2].ys[9]) + ")")
-		.attr("dy", ".35em")
-		.attr("text-anchor", "start")
-		.style("fill", "black")
-		.text("Hillary Hahn");
-    
-    
+new d3plus.LinePlot()
+	.select("#musicchart2")
+  .height(500)
+	.width(700)
+  .config({
+    data: myData,
+    groupBy: "id",
+    x: "x",
+    y: "y",
+    tooltipConfig: {
+  	tbody: [
+    [function(d) { return d.label; }, " ",function(d) { return d.y; }]
+  ]}
+  })
+  .render();

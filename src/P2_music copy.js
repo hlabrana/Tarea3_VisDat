@@ -1,4 +1,4 @@
-var data = [
+var myData = [
     {artist: "Drake", iden: "acousticness", value: 0.39},
     {artist: "Drake", iden: "danceability", value: 0.65},
     {artist: "Drake", iden: "energy", value: 0.55},
@@ -46,7 +46,7 @@ d3.select("#musicchart2")
 new d3plus.LinePlot()
   	.select("#musicchart2")
   	.config({
-      data: data,
+      data: myData,
       groupBy: "artist",
       x: "iden",
       y: "value",

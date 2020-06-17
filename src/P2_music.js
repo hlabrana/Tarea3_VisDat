@@ -1,8 +1,8 @@
 var data = {
-    y: "Value",
+    y: "y",
     series: [{
             name:"Hillary Hahn",
-            values: [
+            ys: [
                 0.91,
                 0.35,
                 0.40,
@@ -17,7 +17,7 @@ var data = {
         },
         {
             name: "Drake",
-            values: [
+            ys: [
                 0.39,
                 0.65,
                 0.55,
@@ -32,7 +32,7 @@ var data = {
         },
         {
             name: "Bad Bunny",
-            values: [
+            ys: [
                 0.34,
                 0.75,
                 0.68,
@@ -91,7 +91,7 @@ var x = d3.scalePoint()
     .range([0,width-50]);
 
 var y = d3.scaleLinear()
-    .domain([0, d3.max(data.series, d => d3.max(d.values))]).nice()
+    .domain([0, d3.max(data.series, d => d3.max(d.ys))]).nice()
     .range([height - margin.bottom, margin.top]);
 
 var z = d3.scaleOrdinal(d3.schemeCategory10).domain(["Hillary Hahn", "Drake", "Bad Bunny"]);
@@ -117,17 +117,17 @@ svg.append("g")
     .data(data.series)
     .join("path")
       .style("mix-blend-mode", "multiply")
-      .attr("d", d => line(d.values));
+      .attr("d", d => line(d.ys));
     
 svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[1].values[9]) + ")")
+		.attr("transform", "translate(" + (width-47) + "," + y(data.series[1].ys[9]) + ")")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.style("fill", "black")
 		.text("Drake");
 
 	svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[0].values[9]) + ")")
+		.attr("transform", "translate(" + (width-47) + "," + y(data.series[0].ys[9]) + ")")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.style("fill", "black")
@@ -135,7 +135,7 @@ svg.append("text")
     
     
 svg.append("text")
-		.attr("transform", "translate(" + (width-47) + "," + y(data.series[2].values[9]) + ")")
+		.attr("transform", "translate(" + (width-47) + "," + y(data.series[2].ys[9]) + ")")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.style("fill", "black")

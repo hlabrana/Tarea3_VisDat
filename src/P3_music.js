@@ -15,14 +15,14 @@ new d3plus.Pack()
   .select("#BBBABYY")
   .config({
     data: mydata,
-    groupBy: ["id", "value"],
+    groupBy: ["parent", "id"],
     sum: function(d) {
     return d["value"];
     },
   })
   .height(500)
-    .width(700)
-    .shapeConfig({
+  .width(700)
+  .shapeConfig({
     fill: function(d) {
         return d.color;
     }

@@ -31,8 +31,6 @@ var myData = [
     {id: "Hillary Hahn", x: 9, y: 0.94, label: "song_quantity"},
 ];
 
-
-
 d3.select("#musicchart2")
 .append('h4')
 .text('Comparación entre artistas musicales usando los promedios para cada categoría [Spotify]')

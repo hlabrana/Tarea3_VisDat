@@ -1,9 +1,9 @@
 var mydata = [
-    {"parent": "Group 1", "id": "alpha", "value": 29,"#217BED"},
-    {"parent": "Group 1", "id": "beta", "value": 10,"#217BED"},
-    {"parent": "Group 1", "id": "gamma", "value": 2,"#217BED"},
-    {"parent": "Group 2", "id": "delta", "value": 29,"#D80909"},
-    {"parent": "Group 2", "id": "eta", "value": 25,"#D80909"}
+    {"parent": "Group 1", "id": "alpha", "value": 29,color:"#217BED"},
+    {"parent": "Group 1", "id": "beta", "value": 10,color:"#217BED"},
+    {"parent": "Group 1", "id": "gamma", "value": 2,color:"#217BED"},
+    {"parent": "Group 2", "id": "delta", "value": 29,color:"#D80909"},
+    {"parent": "Group 2", "id": "eta", "value": 25,color:"#D80909"}
 ];
   
 d3.select("#BBBABYY")

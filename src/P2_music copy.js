@@ -49,7 +49,7 @@ new d3plus.LinePlot()
       data: myData,
       groupBy: "artist",
       x: "iden",
-      y: "value"
+      y: "value",
     })
     .height(500)
   	.width(700)

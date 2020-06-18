@@ -36,13 +36,7 @@ d3.select("#musicchart2")
 .text('Comparación entre artistas musicales usando los promedios para cada categoría [Spotify]')
 .style("text-align","center")
 
-d3.select("#musicchart2")
-.append('p')
-.text('Nota: los valores de cantidades de canciones fueron escalados en función del artista con más canciones')
-.style("text-align","center")
-
 new d3plus.LinePlot()
-.select("#musicchart2")
 .height(500)
 .width(700)
 .config({
@@ -55,4 +49,10 @@ new d3plus.LinePlot()
   [function(d) { return d.label; }, " ",function(d) { return d.y; }]
 ]}
 })
+.select("#musicchart2")
 .render();
+
+d3.select("#musicchart2")
+.append('p')
+.text('Nota: los valores de cantidades de canciones fueron escalados en función del artista con más canciones')
+.style("text-align","center")

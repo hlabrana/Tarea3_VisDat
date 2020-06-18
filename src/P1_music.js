@@ -14,7 +14,7 @@ var mydata = [
 
 d3.select("#hilarychart")
 .append('h4')
-.text('Comparación entre idas musicales [Spotify]')
+.text('Comparación entre Artistas musicales [Spotify]')
 .style("text-align","center")
 
 

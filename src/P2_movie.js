@@ -6,6 +6,12 @@ var myData = [
     {id: "Death Note",  x: 4, y:  24, label: "Duration"},
     {id: "Death Note",  x: 5, y: 37, label: "Chapters per season"}
   ];
+
+
+d3.select("#panel2")
+.append('h4')
+.text('Comparación entre Series de TV [IMDb]')
+.style('text-align','center')
   
   new d3plus.StackedArea()
   .select("#panel2")

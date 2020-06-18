@@ -43,7 +43,7 @@ tooltipConfig: {
 }
 })
 .height(500)
-.width(750)
+.width(700)
 .render();
 
 

@@ -39,20 +39,20 @@ d3.select("#musicchart2")
 new d3plus.LinePlot()
 .height(500)
 .width(700)
-.xConfig({
-  labels: ["Acousticness", "Danceability", "Energy", "Instrumentalness", "Liveness", "Speechiness", "Tempo", "Valence", "Popularity", "Song Quantity"],
-  ticks: [0,1,2,3,4,5,6,7,8,9],
-  scale: "ordinal"
-})
 .config({
   data: myData,
   groupBy: "id",
   x: "x",
   y: "y",
   tooltipConfig: {
-  tbody: [
-  [function(d) { return d.label; }, " ",function(d) { return d.y; }]
-]}
+    tbody: [
+      [function(d) { return d.label; }, " ",function(d) { return d.y; }]
+    ]}
+  })
+.xConfig({
+  labels: ["Acousticness", "Danceability", "Energy", "Instrumentalness", "Liveness", "Speechiness", "Tempo", "Valence", "Popularity", "Song Quantity"],
+  ticks: [0,1,2,3,4,5,6,7,8,9],
+  scale: "ordinal"
 })
 .select("#musicchart2")
 .render();

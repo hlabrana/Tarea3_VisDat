@@ -28,4 +28,7 @@ new d3plus.Pack()
 .render();
 
 
-
+d3.select("#musicchart2")
+.append('p')
+.text('Nota: El tamaño de los dots representa la popuularidad promedio de cada disco')
+.style("text-align","center")

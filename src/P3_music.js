@@ -6,7 +6,7 @@ var data = [
   {parent: "Drake", id: "Dark Lane Demo Tapes", value:79.36},
   {parent: "Drake", id: "Scorpion", value: 66.92},
   {parent: "Drake", id: "More Life", value: 64.50},
-  {parent: "Drake", id: "Views", value: 64.36}
+  {parent: "Drake", id: "Views", value: 64.36},
   {parent: "Hilary Hahn", id: "Hilary Hahn plays Bach: Violin Sonatas Nos. 1 & 2; Partita No. 1", value:28.81},
   {parent: "Hilary Hahn", id: "Mozart: Violin Sonatas K.301, 304, 376 & 526", value: 25.16},
   {parent: "Hilary Hahn", id: "J.S.Bach: Violin Concertos", value: 22.83},

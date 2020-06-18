@@ -28,7 +28,7 @@ new d3plus.Pack()
 .render();
 
 
-d3.select("#musicchart2")
+d3.select("#BBBABYY")
 .append('p')
-.text('Nota: El tamaño de los dots representa la popuularidad promedio de cada disco')
+.text('Nota: El tamaño de los dots representa la popularidad promedio de cada disco')
 .style("text-align","center")
